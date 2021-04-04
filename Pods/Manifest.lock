@@ -1,0 +1,16 @@
+PODS:
+  - RNActivityView (0.0.8)
+
+DEPENDENCIES:
+  - RNActivityView
+
+SPEC REPOS:
+  trunk:
+    - RNActivityView
+
+SPEC CHECKSUMS:
+  RNActivityView: a47d2fd9ae790369dddc8d878bfea359135fceac
+
+PODFILE CHECKSUM: 02901260a2caf1edafbac59e64b88c5bf8bf6143
+
+COCOAPODS: 1.10.0
