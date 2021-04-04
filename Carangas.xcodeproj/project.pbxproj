@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CFE47F9C0E8F6A35011AF04 /* Pods_Carangas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5B64284D6A5A67EC141591 /* Pods_Carangas.framework */; };
 		A1B18D051F9C1BDD00313110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D041F9C1BDD00313110 /* AppDelegate.swift */; };
 		A1B18D0A1F9C1BDD00313110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B18D081F9C1BDD00313110 /* Main.storyboard */; };
 		A1B18D0C1F9C1BDD00313110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B18D0B1F9C1BDD00313110 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 		A1B18D171F9C1D7E00313110 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D161F9C1D7E00313110 /* CarsTableViewController.swift */; };
 		A1B18D191F9C1DBA00313110 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D181F9C1DBA00313110 /* AddEditViewController.swift */; };
 		A1B18D1B1F9C1DCF00313110 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D1A1F9C1DCF00313110 /* CarViewController.swift */; };
+		DE3F992726178DE50006B9AD /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F992626178DE50006B9AD /* Brand.swift */; };
+		DE3F99312617F9750006B9AD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F99302617F9750006B9AD /* UIAlertControllerExtension.swift */; };
+		DE3F99342617F9990006B9AD /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F99332617F9990006B9AD /* UIWindowExtension.swift */; };
 		DE444B83260CF0DA0050C5BF /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B82260CF0DA0050C5BF /* Car.swift */; };
 		DE444B8D260CF2FF0050C5BF /* ApiCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B8C260CF2FF0050C5BF /* ApiCars.swift */; };
 		DE444B90260D039C0050C5BF /* CarError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B8F260D039C0050C5BF /* CarError.swift */; };
@@ -22,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F5B64284D6A5A67EC141591 /* Pods_Carangas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carangas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		507CFA33BFB6323F1CD2938D /* Pods-Carangas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carangas.debug.xcconfig"; path = "Target Support Files/Pods-Carangas/Pods-Carangas.debug.xcconfig"; sourceTree = "<group>"; };
 		A1B18D011F9C1BDD00313110 /* Carangas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carangas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B18D041F9C1BDD00313110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B18D091F9C1BDD00313110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,6 +37,10 @@
 		A1B18D161F9C1D7E00313110 /* CarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewController.swift; sourceTree = "<group>"; };
 		A1B18D181F9C1DBA00313110 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		A1B18D1A1F9C1DCF00313110 /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
+		A5226A23A4A9B377D778E100 /* Pods-Carangas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carangas.release.xcconfig"; path = "Target Support Files/Pods-Carangas/Pods-Carangas.release.xcconfig"; sourceTree = "<group>"; };
+		DE3F992626178DE50006B9AD /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		DE3F99302617F9750006B9AD /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		DE3F99332617F9990006B9AD /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		DE444B82260CF0DA0050C5BF /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DE444B8C260CF2FF0050C5BF /* ApiCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCars.swift; sourceTree = "<group>"; };
 		DE444B8F260D039C0050C5BF /* CarError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarError.swift; sourceTree = "<group>"; };
@@ -43,17 +53,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFE47F9C0E8F6A35011AF04 /* Pods_Carangas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		475B20E992D9C76DB5E8ECF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F5B64284D6A5A67EC141591 /* Pods_Carangas.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6453A103DE6BB4EE4125B1EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				507CFA33BFB6323F1CD2938D /* Pods-Carangas.debug.xcconfig */,
+				A5226A23A4A9B377D778E100 /* Pods-Carangas.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A1B18CF81F9C1BDD00313110 = {
 			isa = PBXGroup;
 			children = (
 				A1B18D031F9C1BDD00313110 /* Carangas */,
 				A1B18D021F9C1BDD00313110 /* Products */,
+				6453A103DE6BB4EE4125B1EC /* Pods */,
+				475B20E992D9C76DB5E8ECF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,23 +100,58 @@
 			isa = PBXGroup;
 			children = (
 				A1B18D041F9C1BDD00313110 /* AppDelegate.swift */,
+				DE3F992E2617F7770006B9AD /* Extensions */,
 				DE444B81260CF0B80050C5BF /* Model */,
 				DE444B86260CF2B40050C5BF /* Networking */,
-				A1B18D161F9C1D7E00313110 /* CarsTableViewController.swift */,
-				A1B18D181F9C1DBA00313110 /* AddEditViewController.swift */,
-				A1B18D1A1F9C1DCF00313110 /* CarViewController.swift */,
-				A1B18D081F9C1BDD00313110 /* Main.storyboard */,
-				A1B18D0B1F9C1BDD00313110 /* Assets.xcassets */,
-				A1B18D0D1F9C1BDD00313110 /* LaunchScreen.storyboard */,
+				DE3F992C2617F33B0006B9AD /* ViewControllers */,
+				DE3F99292617F0E40006B9AD /* Storyboards */,
+				DE3F992B2617F2D00006B9AD /* Resources */,
 				A1B18D101F9C1BDD00313110 /* Info.plist */,
 			);
 			path = Carangas;
+			sourceTree = "<group>";
+		};
+		DE3F99292617F0E40006B9AD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A1B18D081F9C1BDD00313110 /* Main.storyboard */,
+				A1B18D0D1F9C1BDD00313110 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DE3F992B2617F2D00006B9AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1B18D0B1F9C1BDD00313110 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE3F992C2617F33B0006B9AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1B18D161F9C1D7E00313110 /* CarsTableViewController.swift */,
+				A1B18D181F9C1DBA00313110 /* AddEditViewController.swift */,
+				A1B18D1A1F9C1DCF00313110 /* CarViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DE3F992E2617F7770006B9AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE3F99302617F9750006B9AD /* UIAlertControllerExtension.swift */,
+				DE3F99332617F9990006B9AD /* UIWindowExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DE444B81260CF0B80050C5BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DE444B82260CF0DA0050C5BF /* Car.swift */,
+				DE3F992626178DE50006B9AD /* Brand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B18D131F9C1BDD00313110 /* Build configuration list for PBXNativeTarget "Carangas" */;
 			buildPhases = (
+				CD15A86315F059A39B0EF5DB /* [CP] Check Pods Manifest.lock */,
 				A1B18CFD1F9C1BDD00313110 /* Sources */,
 				A1B18CFE1F9C1BDD00313110 /* Frameworks */,
 				A1B18CFF1F9C1BDD00313110 /* Resources */,
+				775B6D0DA1D38D44BBD2A007 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +236,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		775B6D0DA1D38D44BBD2A007 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carangas/Pods-Carangas-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RNActivityView/RNActivityView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNActivityView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Carangas/Pods-Carangas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD15A86315F059A39B0EF5DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carangas-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A1B18CFD1F9C1BDD00313110 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,10 +287,13 @@
 				DE444B90260D039C0050C5BF /* CarError.swift in Sources */,
 				A1B18D171F9C1D7E00313110 /* CarsTableViewController.swift in Sources */,
 				DE444B8D260CF2FF0050C5BF /* ApiCars.swift in Sources */,
+				DE3F992726178DE50006B9AD /* Brand.swift in Sources */,
 				A1B18D051F9C1BDD00313110 /* AppDelegate.swift in Sources */,
 				DE444B83260CF0DA0050C5BF /* Car.swift in Sources */,
 				A1B18D191F9C1DBA00313110 /* AddEditViewController.swift in Sources */,
+				DE3F99312617F9750006B9AD /* UIAlertControllerExtension.swift in Sources */,
 				DE444B97260D04440050C5BF /* HTTPStatusCode.swift in Sources */,
+				DE3F99342617F9990006B9AD /* UIWindowExtension.swift in Sources */,
 				DEE86B2A2612427F0092BC86 /* RestOperation.swift in Sources */,
 				A1B18D1B1F9C1DCF00313110 /* CarViewController.swift in Sources */,
 			);
@@ -316,6 +430,7 @@
 		};
 		A1B18D141F9C1BDD00313110 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 507CFA33BFB6323F1CD2938D /* Pods-Carangas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -331,6 +446,7 @@
 		};
 		A1B18D151F9C1BDD00313110 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5226A23A4A9B377D778E100 /* Pods-Carangas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
