@@ -68,11 +68,55 @@ extension ApiCars {
                 }
                 
             } else {
-                onError(.taskError(error: error!))
+                onError(.taskError(error!))
             }
         }
         task.resume()
     }
+    
+    class func getBrands(completion: @escaping ([Brand]) -> Void, onError: @escaping (CarError) -> Void ) {
+        
+        let urlString = "https://fipeapi.appspot.com/api/1/carros/marcas.json"
+        
+        guard let url = URL(string: urlString) else {
+            onError(.url)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {
+                    onError(.noResponse)
+                    return
+                }
+                
+                let statusCode = HTTPStatusCode(rawValue: response.statusCode)
+                
+                switch statusCode {
+                case .ok:
+                    guard let dataResponse = data else {return}
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        let brands = try decoder.decode([Brand].self, from: dataResponse)
+                        completion(brands)
+                    } catch {
+                        onError(.invalidJSON)
+                    }
+                default:
+                    onError(.responseStatusCode(response.statusCode))
+                }
+                
+            } else {
+                onError(.taskError(error!))
+            }
+        }
+        task.resume()
+    }
+    
     
     class func saveCar(car: Car, completion: @escaping (Bool) -> Void ) {
         applyOperation(car: car, operation: .post, completion: completion)
