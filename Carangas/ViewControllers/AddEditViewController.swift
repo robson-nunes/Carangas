@@ -37,7 +37,8 @@ class AddEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadBrands()
+
+        //loadBrands()
     }
     
     
@@ -62,7 +63,7 @@ class AddEditViewController: UIViewController {
     
     private func setupView() {
         setupInit()
-        setupToolBar()
+        //setupToolBar()
     }
     
     private func setupToolBar() {
@@ -93,8 +94,7 @@ class AddEditViewController: UIViewController {
                 self.pickerView.reloadAllComponents()
             }
         } onError: { (error) in
-            guard let errorDescription = error.errorDescription else { return }
-            UIAlertController.showAlert(withTitle: "Atenção", withMessage: errorDescription)
+            UIAlertController.showAlert(withTitle: "Atenção", withMessage: error)
         }
     }
     

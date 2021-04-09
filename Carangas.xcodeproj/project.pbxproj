@@ -20,9 +20,6 @@
 		DE3F99342617F9990006B9AD /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F99332617F9990006B9AD /* UIWindowExtension.swift */; };
 		DE444B83260CF0DA0050C5BF /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B82260CF0DA0050C5BF /* Car.swift */; };
 		DE444B8D260CF2FF0050C5BF /* ApiCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B8C260CF2FF0050C5BF /* ApiCars.swift */; };
-		DE444B90260D039C0050C5BF /* CarError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B8F260D039C0050C5BF /* CarError.swift */; };
-		DE444B97260D04440050C5BF /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE444B96260D04440050C5BF /* HTTPStatusCode.swift */; };
-		DEE86B2A2612427F0092BC86 /* RestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE86B292612427F0092BC86 /* RestOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +40,6 @@
 		DE3F99332617F9990006B9AD /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		DE444B82260CF0DA0050C5BF /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DE444B8C260CF2FF0050C5BF /* ApiCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCars.swift; sourceTree = "<group>"; };
-		DE444B8F260D039C0050C5BF /* CarError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarError.swift; sourceTree = "<group>"; };
-		DE444B96260D04440050C5BF /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
-		DEE86B292612427F0092BC86 /* RestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +68,6 @@
 				507CFA33BFB6323F1CD2938D /* Pods-Carangas.debug.xcconfig */,
 				A5226A23A4A9B377D778E100 /* Pods-Carangas.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -160,9 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				DE444B8C260CF2FF0050C5BF /* ApiCars.swift */,
-				DE444B8F260D039C0050C5BF /* CarError.swift */,
-				DE444B96260D04440050C5BF /* HTTPStatusCode.swift */,
-				DEE86B292612427F0092BC86 /* RestOperation.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -244,10 +234,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Carangas/Pods-Carangas-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RNActivityView/RNActivityView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNActivityView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE444B90260D039C0050C5BF /* CarError.swift in Sources */,
 				A1B18D171F9C1D7E00313110 /* CarsTableViewController.swift in Sources */,
 				DE444B8D260CF2FF0050C5BF /* ApiCars.swift in Sources */,
 				DE3F992726178DE50006B9AD /* Brand.swift in Sources */,
@@ -292,9 +283,7 @@
 				DE444B83260CF0DA0050C5BF /* Car.swift in Sources */,
 				A1B18D191F9C1DBA00313110 /* AddEditViewController.swift in Sources */,
 				DE3F99312617F9750006B9AD /* UIAlertControllerExtension.swift in Sources */,
-				DE444B97260D04440050C5BF /* HTTPStatusCode.swift in Sources */,
 				DE3F99342617F9990006B9AD /* UIWindowExtension.swift in Sources */,
-				DEE86B2A2612427F0092BC86 /* RestOperation.swift in Sources */,
 				A1B18D1B1F9C1DCF00313110 /* CarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

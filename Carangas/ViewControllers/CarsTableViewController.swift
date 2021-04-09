@@ -53,7 +53,7 @@ class CarsTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.view.hideActivityView()
             }
-            UIAlertController.showAlert(withTitle: "Atenção", withMessage: error.errorDescription!)
+            UIAlertController.showAlert(withTitle: "Atenção", withMessage: error)
         }
     }
 }
