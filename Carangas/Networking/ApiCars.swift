@@ -56,7 +56,7 @@ class ApiCars {
                 case .failure( let error):
                     onError(error.localizedDescription)
                 }
-        }
+            }
     }
     
     
@@ -88,11 +88,11 @@ extension ApiCars {
                                             "name": car.name,
                                            "price": car.price]
         let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         ]
 
 
-        AF.request(urlString, method: method, parameters: parameters,encoding: JSONEncoding.prettyPrinted, headers: headers)
+        AF.request(urlString, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseJSON { (response) in
             debugPrint(response)

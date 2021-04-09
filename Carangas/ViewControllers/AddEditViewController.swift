@@ -38,7 +38,7 @@ class AddEditViewController: UIViewController {
         super.viewDidLoad()
         setupView()
 
-        //loadBrands()
+        loadBrands()
     }
     
     
@@ -63,7 +63,7 @@ class AddEditViewController: UIViewController {
     
     private func setupView() {
         setupInit()
-        //setupToolBar()
+        setupToolBar()
     }
     
     private func setupToolBar() {
