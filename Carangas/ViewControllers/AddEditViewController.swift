@@ -37,7 +37,7 @@ class AddEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadBrands()
+        //loadBrands()
     }
     
     
@@ -50,7 +50,7 @@ class AddEditViewController: UIViewController {
     
         loadDataCar()
         saveOrUpdateCar()
-    }
+    }   
     
     
     // MARK: - Private Methods
@@ -62,7 +62,7 @@ class AddEditViewController: UIViewController {
     
     private func setupView() {
         setupInit()
-        setupToolBar()
+        //setupToolBar()
     }
     
     private func setupToolBar() {
