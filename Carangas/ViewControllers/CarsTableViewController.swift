@@ -8,25 +8,19 @@
 
 import UIKit
 import RNActivityView
+import Moya
+
 
 class CarsTableViewController: UITableViewController {
     
     
     // MARK: - Properties
-    var cars: [Car] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
+    var viewModel = CarsViewModel()
 
-        
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,25 +31,20 @@ class CarsTableViewController: UITableViewController {
     
     // MARK: - Flow
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewSegue" {
-            let vc = segue.destination as! CarViewController
-            vc.car = cars[tableView.indexPathForSelectedRow!.row]
+        if let vc = segue.destination as? CarViewController,
+            let indexPath = tableView.indexPathForSelectedRow,
+            segue.identifier! == "viewSegue" {
+            guard let car = viewModel.car(for: indexPath) else {return}
+                vc.viewModel = CarDetailViewModel(car: car)
         }
     }
     
     // MARK: - Private methods
     private func loadCars() {
-        self.view.showActivityView(withLabel: "Carregando carros ...")
-        ApiCars.getCars { (cars) in
+        viewModel.loadCars {
             DispatchQueue.main.async {
-                self.view.hideActivityView()
+                self.tableView.reloadData()
             }
-            self.cars = cars
-        } onError: { (error) in
-            DispatchQueue.main.async {
-                self.view.hideActivityView()
-            }
-            UIAlertController.showAlert(withTitle: "Atenção", withMessage: error.errorDescription!)
         }
     }
 }
@@ -65,16 +54,16 @@ class CarsTableViewController: UITableViewController {
 extension CarsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cars.count
+        return viewModel.numberOfCars
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let car = cars[indexPath.row]
-        
-        cell.textLabel?.text = car.name
-        cell.detailTextLabel?.text = car.brand
+        if let car = viewModel.car(for: indexPath) {
+            cell.textLabel?.text = car.name
+            cell.detailTextLabel?.text = car.brand
+        }
         
         return cell
     }
@@ -82,16 +71,11 @@ extension CarsTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            let car = cars[indexPath.row]
-            
-            ApiCars.deleteCar(car: car) { (success) in
-                if success {
+            if let car = viewModel.car(for: indexPath) {
+                viewModel.delete(car: car, at: indexPath) {
                     DispatchQueue.main.async {
-                        self.cars.remove(at: indexPath.row)
                         tableView.deleteRows(at: [indexPath], with: .fade)
                     }
-                } else {
-                    UIAlertController.showAlert(withTitle: "Atenção", withMessage: "Não é possível excluir")
                 }
             }
         }

@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-class NetworkEngine<Target: TargetType> {
+class Networking<Target: TargetType> {
     private var provider: MoyaProvider<Target>
 
     init(provider: MoyaProvider<Target>) {

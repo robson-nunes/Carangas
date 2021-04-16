@@ -20,7 +20,7 @@ class CarViewController: UIViewController {
     
     
     // MARK: - Properties
-    var car: Car!
+    var viewModel: CarDetailViewModel!
     
     
     // MARK: - LifeCycle
@@ -30,41 +30,35 @@ class CarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setupWebView()
+        guard let viewModel = viewModel else { return }
+        setupView(viewModel)
     }
     
     
     // MARK: - Flow
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! AddEditViewController
-        vc.car = car
+        let car = viewModel.car
+        vc.viewModel = AddEditCarViewModel(car: car)
     }
     
-    // MARK: - Flow
-    private func loadCar() {
-        self.title = car.name
-        lbBrand.text = car.brand
-        lbGasType.text = car.gas
-        lbPrice.text = String(car.price)
-    }
-    
-    private func setupWebView() {
-        loadCar()
-        let searchTerm = carSearchTerm(car)
+    private func setupView(_ viewModel: CarDetailViewModel) {
+        title = viewModel.name
+        
+        lbBrand.text = viewModel.brand
+        lbPrice.text = viewModel.price
+        lbGasType.text = viewModel.gas
+        
+        let searchTerm = viewModel.nameSearch
         let urlString = "https://www.google.com.br/search?q=\(searchTerm)0&tbm=isch"
         guard let url = URL(string: urlString) else { return }
         let request = URLRequest(url: url)
         
         webView.allowsBackForwardNavigationGestures = true
-        webView.allowsLinkPreview = true
+        webView.allowsLinkPreview = false
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.load(request)
-    }
-    
-    private func carSearchTerm(_ carSearch: Car) -> String {
-        let searchTerm = (carSearch.name + "+" + carSearch.brand).replacingOccurrences(of: " ", with: "+")
-        return searchTerm
     }
 }
 

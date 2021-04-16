@@ -8,7 +8,7 @@
 
 //import Foundation
 import Moya
-enum CarService {
+enum CarEndpoints {
     case loadCars
     case save(car: Car)
     case update(car: Car)
@@ -16,7 +16,7 @@ enum CarService {
     case loadBrands
 }
 
-extension CarService: TargetType {
+extension CarEndpoints: TargetType {
     var baseURL: URL {
         switch self {
         case .loadBrands:
