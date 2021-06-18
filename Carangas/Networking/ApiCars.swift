@@ -7,127 +7,69 @@
 //
 
 import Foundation
+import Alamofire
 
 let baseURL = "https://carangas.herokuapp.com"
 let path = "/cars"
 
 class ApiCars {
     
-    private static var configuration: URLSessionConfiguration = {
-        let config = URLSessionConfiguration.default
-        config.allowsCellularAccess = false
-        config.httpAdditionalHeaders = ["Content-Type": "application/json"]
-        config.timeoutIntervalForRequest = 30.0
-        config.httpMaximumConnectionsPerHost = 5
-        return config
-    }()
-    
-    private static let session = URLSession(configuration: configuration)
-    
-}
-
-
-// MARK: -  Services
-extension ApiCars {
-    
-    class func getCars(completion: @escaping ([Car]) -> Void, onError: @escaping (CarError) -> Void ) {
+    class func getCars(completion: @escaping ([Car]) -> Void, onError: @escaping (String) -> Void ) {
         
         let urlString = baseURL + path
         
-        guard let url = URL(string: urlString) else {
-            onError(.url)
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            
-            if error == nil {
-                guard let response = response as? HTTPURLResponse else {
-                    onError(.noResponse)
-                    return
-                }
+        AF.request(urlString, method: .get)
+            .response { (response) in
+                switch response.result {
                 
-                let statusCode = HTTPStatusCode(rawValue: response.statusCode)
-                
-                switch statusCode {
-                case .ok:
-                    guard let dataResponse = data else {return}
-                    
+                case .success( _):
+                    guard let data = response.data else {return}
                     do {
-                        let decoder = JSONDecoder()
-                        let cars = try decoder.decode([Car].self, from: dataResponse)
+                        let cars = try JSONDecoder().decode([Car].self, from: data)
                         completion(cars)
-                    } catch {
-                        onError(.invalidJSON)
+                    } catch let error as NSError {
+                        onError(error.localizedDescription)
                     }
-                default:
-                    onError(.responseStatusCode(response.statusCode))
+                    
+                case .failure(let error):
+                    onError(error.localizedDescription)
                 }
-                
-            } else {
-                onError(.taskError(error!))
             }
-        }
-        task.resume()
     }
     
-    class func getBrands(completion: @escaping ([Brand]) -> Void, onError: @escaping (CarError) -> Void ) {
+    class func getBrands(completion: @escaping ([Brand]) -> Void, onError: @escaping (String) -> Void ) {
         
         let urlString = "https://fipeapi.appspot.com/api/1/carros/marcas.json"
-        
-        guard let url = URL(string: urlString) else {
-            onError(.url)
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if error == nil {
-                guard let response = response as? HTTPURLResponse else {
-                    onError(.noResponse)
-                    return
-                }
+        AF.request(urlString, method: .get)
+            .response { (response) in
+                switch response.result {
                 
-                let statusCode = HTTPStatusCode(rawValue: response.statusCode)
-                
-                switch statusCode {
-                case .ok:
-                    guard let dataResponse = data else {return}
-                    
+                case .success(_):
+                    guard let data = response.data else {return}
                     do {
-                        let decoder = JSONDecoder()
-                        let brands = try decoder.decode([Brand].self, from: dataResponse)
+                        let brands = try JSONDecoder().decode([Brand].self, from: data)
                         completion(brands)
-                    } catch {
-                        onError(.invalidJSON)
+                    } catch let error as NSError {
+                        onError(error.localizedDescription)
                     }
-                default:
-                    onError(.responseStatusCode(response.statusCode))
+                    
+                case .failure( let error):
+                    onError(error.localizedDescription)
                 }
-                
-            } else {
-                onError(.taskError(error!))
             }
-        }
-        task.resume()
     }
     
     
     class func saveCar(car: Car, completion: @escaping (Bool) -> Void ) {
-        applyOperation(car: car, operation: .post, completion: completion)
+        applyOperation(car: car, method: .post, completion: completion)
     }
     
     class func updateCar(car: Car, completion: @escaping (Bool) -> Void ) {
-        applyOperation(car: car, operation: .put, completion: completion)
+        applyOperation(car: car, method: .put, completion: completion)
     }
     
     class func deleteCar(car: Car, completion: @escaping (Bool) -> Void ) {
-        applyOperation(car: car, operation: .delete, completion: completion)
+        applyOperation(car: car, method: .delete, completion: completion)
     }
 }
 
@@ -135,55 +77,32 @@ extension ApiCars {
 //MARK: Generic method
 extension ApiCars {
     
-    private class func applyOperation(car: Car, operation: RestOperation, completion: @escaping (Bool) -> Void ) {
+    private class func applyOperation(car: Car, method: Alamofire.HTTPMethod, completion: @escaping (Bool) -> Void ) {
         
-        let urlString = baseURL + path + "/" + (car.id ?? "")
-        guard let url = URL(string: urlString) else {
-            completion(false)
-            return
-        }
+        let urlString = baseURL + path  + (car.id ?? "")
         
-        var httpMethod = ""
-        switch operation {
-        case .get:
-            httpMethod = operation.rawValue
-        case .post:
-            httpMethod = operation.rawValue
-        case .put:
-            httpMethod = operation.rawValue
-        case .delete:
-            httpMethod = operation.rawValue
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = httpMethod
-        guard let json = try? JSONEncoder().encode(car)  else {
-            completion(false)
-            return
-        }
-        request.httpBody = json
-        
-        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            
-            guard error == nil else {
-                completion(false)
-                return
-            }
-            guard let response = response as? HTTPURLResponse else {
-                completion(false)
-                return
-            }
-            
-            let statusCode = HTTPStatusCode(rawValue: response.statusCode)
-            
-            switch statusCode {
-            case .ok:
-                guard let _ = data else {return}
+
+        let parameters: [String: Any] = [    "_id": car.id ?? "",
+                                           "brand": car.brand,
+                                         "gasType": car.gasType,
+                                            "name": car.name,
+                                           "price": car.price]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+
+
+        AF.request(urlString, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: headers)
+            .validate()
+            .responseJSON { (response) in
+            debugPrint(response)
+            switch response.result {
+
+            case .success(_):
                 completion(true)
-            default:
+            case .failure(_):
                 completion(false)
             }
         }
-        task.resume()
     }
 }

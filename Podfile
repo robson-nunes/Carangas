@@ -7,6 +7,7 @@ target 'Carangas' do
 
   # Pods for Carangas
   pod 'RNActivityView'
+  pod 'Alamofire', '~> 5.2'
 
 
 end

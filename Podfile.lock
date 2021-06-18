@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.4.0)
   - RNActivityView (0.0.8)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - RNActivityView
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - RNActivityView
 
 SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   RNActivityView: a47d2fd9ae790369dddc8d878bfea359135fceac
 
-PODFILE CHECKSUM: 02901260a2caf1edafbac59e64b88c5bf8bf6143
+PODFILE CHECKSUM: 5203d3b041ceb202c565e3a19021bd7b6423a9b9
 
 COCOAPODS: 1.10.0
